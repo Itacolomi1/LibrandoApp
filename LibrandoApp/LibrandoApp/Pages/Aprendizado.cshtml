@@ -1,0 +1,22 @@
+﻿@page
+@model LibrandoApp.Pages.AprendizadoModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="~/lib/jquery/jquery-3.6.0.js"></script>
+</head>
+
+<body>
+    <div>
+        <img id="imagem" src="~/img/alfabeto/A.jpg">
+        <button type="button" onclick="aprendisado.Trocar_Imagem('A')">A</button>
+        <button type="button" onclick="aprendisado.Trocar_Imagem('B')">B</button>
+    </div>
+</body>
+<script src="./js/aprendisado.js"></script>
+
+</html>
