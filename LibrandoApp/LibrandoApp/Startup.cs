@@ -15,6 +15,7 @@ namespace LibrandoApp
     {
         public Startup(IConfiguration configuration)
         {
+            
             Configuration = configuration;
         }
 
