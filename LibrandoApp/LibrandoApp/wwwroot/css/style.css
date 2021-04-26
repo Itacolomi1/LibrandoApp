@@ -4,55 +4,76 @@
 }
 
 body {
-    background-image: url('../img/fundo.png');
+    background-image: url('../img/fundo3.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     background-size: cover;
     padding-bottom: 70px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }
 
-body .navbar {
-    background: #e3f1ff;
-}
+    body#cadastrosala,
+    body#homeprofessor {
+        background-image: url('../img/fundo-sala2.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        padding-bottom: 70px;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
 
-body .navbar p {
-    font-family: hp;
-    color: white;
-    font-size: xxx-large;
-    margin: auto;
-}
+    body#principal {
+        background-image: url('../img/fundohome.png');
+    }
 
-body .navbar .btn-group>.btn:first-child {
-    background: none;
-}
+    body .navbar {
+        background: #e3f1ff;
+    }
 
-body .navbar .btn:focus {
-    box-shadow: none;
-}
+        body .navbar p {
+            font-family: hp;
+            color: white;
+            font-size: xxx-large;
+            margin: auto;
+        }
 
-body .navbar .dropdown-toggle::after {
-    display: none;
-}
+        body .navbar .btn-group > .btn:first-child {
+            background: none;
+        }
 
-body .navbar .icon-carrinho {
-    margin: auto;
-}
+        body .navbar .btn:focus {
+            box-shadow: none;
+        }
 
-body .navbar .btn-group img {
-    max-height: 51px;
-    width: auto;
-    margin: auto;
-}
+        body .navbar .dropdown-toggle::after {
+            display: none;
+        }
 
-body .navbar .btn-group a {
-    margin: auto;
-}
+        body .navbar .icon-carrinho {
+            margin: auto;
+        }
 
-body .navbar-brand {
-    height: 70px;
-    width: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
+        body .navbar .btn-group img {
+            max-height: 51px;
+            width: auto;
+            margin: auto;
+        }
+
+        body .navbar .btn-group a {
+            margin: auto;
+        }
+
+    body .navbar-brand {
+        height: 70px;
+        width: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 
 #logo-titulo {
     max-width: 200px;
@@ -62,18 +83,27 @@ body .navbar-brand {
 
 #login,
 #cadastrar {
-    position: absolute;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-top: 50px;
+    height: 100%;
+}
+
+#cadastro-sala,
+#home-professor {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 #login form,
 #cadastrar form {
-    width: 300px;
+    width: 500px;
     height: auto;
     margin: auto;
     background: #e3f1ffed;
@@ -81,19 +111,125 @@ body .navbar-brand {
     border: solid #78b9ff;
     display: flex;
     flex-wrap: wrap;
+    max-width: 100%;
 }
 
-#login form .form-group,
-#cadastrar form .form-group {
+#cadastro-sala form {
+    width: 500px;
+    height: auto;
+    margin: auto;
+    background: #e3f1ffed;
+    position: relative;
+    border: solid #78b9ff;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 37px;
+    max-width: 100%;
+}
+
+.opcoes .btn {
+    width: 100%;
+    margin-top: 15px
+}
+
+#home-professor form label {
+    text-align: center;
     width: 100%;
 }
+
+#home-professor form {
+    width: 500px;
+    height: auto;
+    margin: auto;
+    background: #e3f1ffed;
+    position: relative;
+    border: solid #78b9ff;
+    padding: 37px;
+    max-width: 100%;
+}
+
+form label {
+    display: inline-block;
+    margin-bottom: 15px;
+    font-family: cursive;
+    font-size: 18px;
+}
+
+.acesso label {
+    margin-top: 15px;
+}
+
+#Home-Principal form {
+    width: 500px;
+    height: 400px;
+    background: #e3f1ffed;
+    position: relative;
+    border: solid #78b9ff;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    max-width: 100%;
+}
+    #Home-Principal form a{
+    display: contents;
+    justify-content: center;
+    align-items: center;
+    }
+    #login form .form-group,
+    #cadastrar form .form-group,
+    #cadastro-sala form .form-group {
+        width: 100%;
+    }
 
 a.botao {
     width: 100%;
 }
 
+#cadastro-sala .btn {
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 15px;
+}
+
+#cadastro-sala .acesso {
+    display: none;
+}
+
+#Home-Principal {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+    #Home-Principal form:hover {
+        border: solid #27cc00;
+    }
+
+    #Home-Principal img {
+        margin: auto;
+        width: auto;
+        max-height: 300px;
+    }
+
+    #Home-Principal form .btn {
+        width: 100%;
+        height: 50px;
+        background: #78b9ff;
+        border: none;
+    }
+    #Home-Principal form a.btn {
+       display: flex;
+       align-items: center;
+       justify-content: center;
+    }
+
 #login form .btn-primary,
-#cadastrar form .btn-primary {
+#cadastrar form .btn-primary,
+#cadastro form .btn-primary {
     background: #78b9ff;
     border: none;
     width: 100%;
@@ -105,7 +241,9 @@ a.botao {
 }
 
 #login form .btn-primary:hover,
-#cadastrar form .btn-primary:hover {
+#cadastrar form .btn-primary:hover,
+#cadastro-sala form .btn-primary:hover,
+#Home-Principal form .btn-primary:hover {
     color: #fff;
     background-color: #0069d9;
     border-color: #0062cc;
@@ -123,18 +261,20 @@ a.botao {
 }
 
 #login form .dropdown-item,
-#cadastrar form .dropdown-item {
+#cadastrar form .dropdown-item,
+#cadastro-sala form .dropdown-item {
     text-align: center;
 }
 
-#login form .dropdown-item:hover,
-#cadastrar form .dropdown-item:hover {
-    text-align: center;
-    text-decoration: none;
-    color: #0056b3;
-    font-weight: bolder;
-    background: none;
-}
+    #login form .dropdown-item:hover,
+    #cadastrar form .dropdown-item:hover,
+    #cadastro-sala form .dropdown-item:hover {
+        text-align: center;
+        text-decoration: none;
+        color: #0056b3;
+        font-weight: bolder;
+        background: none;
+    }
 
 body .btn-outline-success {
     color: white;
@@ -191,9 +331,9 @@ footer .texto {
     text-align: center;
 }
 
-footer .texto p {
-    margin-bottom: 0;
-}
+    footer .texto p {
+        margin-bottom: 0;
+    }
 
 @media (max-width: 700px) {
     body .navbar {
@@ -203,6 +343,7 @@ footer .texto p {
         justify-content: center !important;
         align-items: center;
     }
+
     .navbar .form-inline {
         width: auto;
     }
