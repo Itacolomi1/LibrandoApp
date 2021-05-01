@@ -1,0 +1,62 @@
+﻿@page
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Librando</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/salaEspera.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+    <nav class="navbar navbar-light justify-content-between">
+        <a class="navbar-brand" href="/Index">
+            <img id="logo" src="img/logo.png" class="lazy" title="Librando Libras Jogo Educacao" alt="Librando Libras Jogo Educacao">
+            <img id="logo-titulo" src="img/titulo.png" class="lazy" title="Librando Libras Jogo Educacao" alt="Librando Libras Jogo Educacao">
+        </a>
+    </nav>
+
+    <div class="container" id="divSalaEspera">
+        <form class="px-4 py-3" id="formSalaEspera">
+            <div class="row">
+                <img id="ImgCarregando" src="img/loading.gif" class="lazy">
+            </div>
+            <div class="row">
+                <label id="TituloSalaEspera">Esperando os outros jogadores</label>
+            </div>
+            <div class="row">
+                <button id="btnJogar" type="button" class="btn btn-primary">Jogar</button>
+            </div>
+        </form>
+    </div>
+    <div id="divSalaNome">
+        <img id="imagemOla" src="~/img/aluno-acenando.png">
+        <form id="formSalaNome">
+            <div class="form-group col-sm-12">
+                <label>Qual é seu nome?</label>
+                <input type="text" class="form-control" id="idNome">
+            </div>
+            <div class="form-group col-sm-12">
+                <button onclick="mostrarSalaEspera()" type="button" id="btnCadastrar" class="btn btn-primary">Cadastrar</button>
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        <div class="texto">
+            <p>2021 © Librando. Todos os direitos reservados. </p>
+        </div>
+    </footer>
+    <script src="./js/salaEspera.js"></script>
+</body>
+</html>
