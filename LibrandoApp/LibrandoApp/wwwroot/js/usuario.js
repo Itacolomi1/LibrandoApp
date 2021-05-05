@@ -13,9 +13,11 @@ function logarUsuario() {
         cache: false
     })
         .done(function (data) {
+            window.location = "https://librandoapp.azurewebsites.net/homeProfessor"
             console.log(data);
 
         }).fail(function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("Usuário ou Senha inválido");
             console.log(errorThrown);
         });
 
