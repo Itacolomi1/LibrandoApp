@@ -171,16 +171,18 @@ form label {
     margin-bottom: 10px;
     max-width: 100%;
 }
-    #Home-Principal form a{
-    display: contents;
-    justify-content: center;
-    align-items: center;
+
+    #Home-Principal form a {
+        display: contents;
+        justify-content: center;
+        align-items: center;
     }
-    #login form .form-group,
-    #cadastrar form .form-group,
-    #cadastro-sala form .form-group {
-        width: 100%;
-    }
+
+#login form .form-group,
+#cadastrar form .form-group,
+#cadastro-sala form .form-group {
+    width: 100%;
+}
 
 a.botao {
     width: 100%;
@@ -221,10 +223,11 @@ a.botao {
         background: #78b9ff;
         border: none;
     }
+
     #Home-Principal form a.btn {
-       display: flex;
-       align-items: center;
-       justify-content: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
 #login form .btn-primary,

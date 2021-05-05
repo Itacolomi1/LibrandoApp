@@ -1,0 +1,45 @@
+﻿#btnJogar {
+    width: 93%;
+}
+
+#ImgCarregando {
+    margin-left: 5%;
+}
+
+#divSalaEspera {
+    width: 400px;
+    height: auto;
+    margin: auto;
+    position: relative;
+    flex-wrap: wrap;
+    padding: 70px;
+    max-width: 100%;
+}
+
+#divSalaNome {
+    width: 500px;
+    height: auto;
+    margin: auto;
+    position: relative;
+    top: -10%;
+}
+
+#formSalaNome {
+    padding: 70px;
+    max-width: 100%;
+    background: #e3f1ffed;
+    border: solid #78b9ff;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 37px;
+}
+
+#imagemOla {
+    width: 90%;
+    position: relative;
+    right: -5%;
+}
+
+#btnCadastrar {
+    width: 100%;
+}
