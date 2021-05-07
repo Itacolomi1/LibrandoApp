@@ -308,6 +308,17 @@ body .dropdown-menu {
     border-color: #78b9ff;
 }
 
+.jogos-opcoes label {
+    margin-bottom: 0;
+}
+
+.jogos-opcoes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
 body footer {
     display: flex;
     color: black;
