@@ -1,6 +1,7 @@
 function logarUsuario() {
 
-    var url = "https://librando.azurewebsites.net/api/usuario/authenticate";
+   var url = "https://librando.azurewebsites.net/api/usuario/authenticate";
+   
 
     var usuario = {};
     usuario.email = $('#email_user').val();
@@ -13,6 +14,8 @@ function logarUsuario() {
         cache: false
     })
         .done(function (data) {
+            localStorage.setItem('user_token', JSON.stringify(data.token));
+            console.log('a token é ' + JSON.parse(localStorage.getItem('user_token')));
             window.location = "https://librandoapp.azurewebsites.net/homeProfessor"
             console.log(data);
 
