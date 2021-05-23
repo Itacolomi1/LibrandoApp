@@ -3,8 +3,6 @@
     Layout = null;
 }
 
-
-
 <!DOCTYPE html>
 <html>
 
@@ -12,7 +10,6 @@
     <title>Librando</title>
     <script src="http://code.jquery.com/jquery-2.2.3.min.js"></script>
     <script src="JS/jquery.min.js"></script>
-    <script src="~/lib/jquery/jquery-3.6.0.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="apple-touch-icon" sizes="57x57" href="img/apple-icon-57x57.png">
@@ -36,7 +33,7 @@
 
 </head>
 
-<body id="aprendizado">
+<body id="jogo1">
 
     <nav class="navbar navbar-light justify-content-between">
         <a class="navbar-brand" href="\index">
@@ -49,47 +46,26 @@
         </div>
 
     </nav>
-    <div id="lousa">
-        <img id="imagem" src="~/img/alfabeto/A.png" class="lazy" title="perfil" alt="perfil">
+    <div class="engloba">
+        <div class="engloba2">
+            <div id="pergunta">
+                <p>Selecione o sinal correspondente a letra "A"</p>
 
+            </div>
+            <div id="opcoes">
+                <button><img src="~/img/alfabeto/a.png" class="lazy" title="perfil" alt="perfil"></button>
+                <button><img src="~/img/alfabeto/b.png" class="lazy" title="perfil" alt="perfil"></button>
+                <button><img src="~/img/alfabeto/c.png" class="lazy" title="perfil" alt="perfil"></button>
+
+            </div>
+        </div>
     </div>
-    <div id="alfabeto">
-        <button onclick="aprendizado.Trocar_Imagem('A')" type="submit" class="btn btn-primary">A</button>
-        <button onclick="aprendizado.Trocar_Imagem('B')" type="submit" class="btn btn-primary">B</button>
-        <button onclick="aprendizado.Trocar_Imagem('C')" type="submit" class="btn btn-primary">C</button>
-        <button onclick="aprendizado.Trocar_Imagem('D')" type="submit" class="btn btn-primary">D</button>
-        <button onclick="aprendizado.Trocar_Imagem('E')" type="submit" class="btn btn-primary">E</button>
-        <button onclick="aprendizado.Trocar_Imagem('F')" type="submit" class="btn btn-primary">F</button>
-        <button onclick="aprendizado.Trocar_Imagem('G')" type="submit" class="btn btn-primary">G</button>
-        <button onclick="aprendizado.Trocar_Imagem('H')" type="submit" class="btn btn-primary">H</button>
-        <button onclick="aprendizado.Trocar_Imagem('I')" type="submit" class="btn btn-primary">I</button>
-        <button onclick="aprendizado.Trocar_Imagem('J')" type="submit" class="btn btn-primary">J</button>
-        <button onclick="aprendizado.Trocar_Imagem('K')" type="submit" class="btn btn-primary">K</button>
-        <button onclick="aprendizado.Trocar_Imagem('L')" type="submit" class="btn btn-primary">L</button>
-        <button onclick="aprendizado.Trocar_Imagem('M')" type="submit" class="btn btn-primary">M</button>
-        <button onclick="aprendizado.Trocar_Imagem('N')" type="submit" class="btn btn-primary">N</button>
-        <button onclick="aprendizado.Trocar_Imagem('O')" type="submit" class="btn btn-primary">O</button>
-        <button onclick="aprendizado.Trocar_Imagem('P')" type="submit" class="btn btn-primary">P</button>
-        <button onclick="aprendizado.Trocar_Imagem('Q')" type="submit" class="btn btn-primary">Q</button>
-        <button onclick="aprendizado.Trocar_Imagem('R')" type="submit" class="btn btn-primary">R</button>
-        <button onclick="aprendizado.Trocar_Imagem('S')" type="submit" class="btn btn-primary">S</button>
-        <button onclick="aprendizado.Trocar_Imagem('T')" type="submit" class="btn btn-primary">T</button>
-        <button onclick="aprendizado.Trocar_Imagem('U')" type="submit" class="btn btn-primary">U</button>
-        <button onclick="aprendizado.Trocar_Imagem('V')" type="submit" class="btn btn-primary">V</button>
-        <button onclick="aprendizado.Trocar_Imagem('W')" type="submit" class="btn btn-primary">W</button>
-        <button onclick="aprendizado.Trocar_Imagem('X')" type="submit" class="btn btn-primary">X</button>
-        <button onclick="aprendizado.Trocar_Imagem('Y')" type="submit" class="btn btn-primary">Y</button>
-        <button onclick="aprendizado.Trocar_Imagem('Z')" type="submit" class="btn btn-primary">Z</button>
-
-    </div>
-
     <footer>
         <div class="texto">
             <p>2021 © Librando. Todos os direitos reservados. </p>
 
         </div>
     </footer>
-    <script src="./js/aprendizado.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
