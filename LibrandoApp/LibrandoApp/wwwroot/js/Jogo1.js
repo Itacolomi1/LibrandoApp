@@ -2,14 +2,13 @@
 
 
 $(document).ready(function () {
-    jogo2.lista_alfabeto();
-    //jogo2.chuva_de_meteoros();
+    jogo1.lista_alfabeto();
 
 });
 
-var jogo2 = function () {
+var jogo1 = function () {
 
-   
+
 
     //Ids dos elementos da tela
     var controles = function () {
@@ -18,11 +17,7 @@ var jogo2 = function () {
             desc_pergunta: "#desc_pergunta",
             alt_A: "#alt_A",
             alt_B: "#alt_B",
-            alt_C: "#alt_C",
-            m1: "#m1",
-            m2: "#m2",
-            m3: "#m3",
-            m4: "#m4"
+            alt_C: "#alt_C"
 
         };
     }
@@ -30,22 +25,22 @@ var jogo2 = function () {
     var lista_alfabeto = function () {
 
         var url = "https://librando.azurewebsites.net/api/jogo1";
-        
+
 
         $.ajax({
             type: "GET",
-            url: url, 
+            url: url,
             cache: false
-           
+
         })
-            .done(function (data) {                
+            .done(function (data) {
 
                 lista_perguntas = data;
                 localStorage.setItem('jogo', JSON.stringify(data));
                 console.log(JSON.parse(localStorage.getItem('jogo')));
 
                 // Jogando na tela 
-                exibe_pergunta(data[0]);                
+                exibe_pergunta(data[0]);
 
 
             }).fail(function (XMLHttpRequest, textStatus, errorThrown) {
@@ -56,7 +51,7 @@ var jogo2 = function () {
     }
 
     var proxima_pergunta = function () {
-      
+
         if (lista_perguntas.length == 1) {
             alert("Acabou o Jogo!!");
         } else {
@@ -69,33 +64,26 @@ var jogo2 = function () {
     }
 
     var exibe_pergunta = function (pergunta) {
-   
+
         $(controles().desc_pergunta).text(pergunta.Descricao);
-        $(controles().alt_A).text(pergunta.Opcao1);
-        $(controles().alt_B).text(pergunta.Opcao2);
-        $(controles().alt_C).text(pergunta.OpcaoCerta);
-    }
-    var chuva_de_meteoros = function () {
+        Trocar_Imagem(controles().alt_A, pergunta.Opcao1);
+        Trocar_Imagem(controles().alt_B, pergunta.OpcaoCerta);
+        Trocar_Imagem(controles().alt_C, pergunta.Opcao2);
 
-        $(controles().m1).trigger("click");
-        $(controles().m2).trigger("click");
-        $(controles().m3).trigger("click");
-        $(controles().m4).trigger("click");
-        
-
-        
     }
 
-    var queda_meteoro = function (elemento) {
-        elemento.style.top = '1000px';
+    var Trocar_Imagem = function (id, letra) {
+        var imagem = letra + '.png';
+        $(id).attr("src", "./img/AlfabetoLibras/" + imagem);
+
     }
 
-  
+
+
     return {
-        lista_alfabeto: lista_alfabeto,     
-        proxima_pergunta: proxima_pergunta,
-        chuva_de_meteoros: chuva_de_meteoros,
-        queda_meteoro: queda_meteoro
+        lista_alfabeto: lista_alfabeto,
+        proxima_pergunta: proxima_pergunta
+
 
     };
 }();

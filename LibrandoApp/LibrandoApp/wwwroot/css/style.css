@@ -450,7 +450,20 @@ footer .texto {
     }
 }
 
-.meteoro {
+.meteoro_rapido {
+    position: relative;
+    cursor: pointer;
+    width: 177px;
+    height: 160px;
+    left: 0px;
+    top: -150px;
+    /* transition: top 5s cubic-bezier(x1, y1, x2, y2); */
+    /* x-> tempo */
+    /* y-> deslocamento */
+    transition: top 5s cubic-bezier(0.0, 0, 0.8, 1);
+}
+
+.meteoro_medio {
     position: relative;
     cursor: pointer;
     width: 177px;
@@ -460,5 +473,18 @@ footer .texto {
     /* transition: top 5s cubic-bezier(x1, y1, x2, y2); */
     /* x-> tempo */
     /* y-> deslocamento */
-    transition: top 5s cubic-bezier(0.0, 0, 0.2, 1);
+    transition: top 5s cubic-bezier(0.0, 0, 1, 1);
+}
+
+.meteoro_devagar {
+    position: relative;
+    cursor: pointer;
+    width: 177px;
+    height: 160px;
+    left: 0px;
+    top: 0px;
+    /* transition: top 5s cubic-bezier(x1, y1, x2, y2); */
+    /* x-> tempo */
+    /* y-> deslocamento */
+    transition: top 5s cubic-bezier(0.0, 0, 1, 1);
 }
