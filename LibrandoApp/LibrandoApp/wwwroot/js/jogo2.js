@@ -1,17 +1,35 @@
-﻿var lista_perguntas = [];
+﻿var lista_meteoros = [];
+var lista_alfabeto = ["J", "K", "L", "M"];
 
+var meteoro = {};
 
 $(document).ready(function () {
-    //jogo2.lista_alfabeto();
-    jogo2.chuva_de_meteoros();
-    jogo2.teste();
+    jogo2.preenche_lista_meteoros();
+     jogo2.chuva_de_meteoros();
 
 });
 
 var jogo2 = function () {
 
-   
+    var preenche_lista_meteoros = function () {
+        
+        for (var x = 0; x < 4; x++) {
+            meteoro.letra = lista_alfabeto[x];
+            meteoro.status = 0;
+            lista_meteoros[x] = meteoro;
+        }
+        debugger;
+        lista_meteoros = lista_alfabeto
+        Trocar_Imagem(controles().m1, lista_meteoros[0].letra);
+        Trocar_Imagem(controles().m2, lista_meteoros[1].letra);
+        Trocar_Imagem(controles().m3, lista_meteoros[2].letra);
+        Trocar_Imagem(controles().m4, lista_meteoros[3].letra);
+    }
+    var Trocar_Imagem = function (id, letra) {
+        var imagem = letra + '.png';
+        $(id).attr("src", "./img/Meteoros/" + imagem);
 
+    }
     //Ids dos elementos da tela
     var controles = function () {
         return {
@@ -28,54 +46,6 @@ var jogo2 = function () {
         };
     }
 
-    var lista_alfabeto = function () {
-
-        var url = "https://librando.azurewebsites.net/api/jogo1";
-        
-
-        $.ajax({
-            type: "GET",
-            url: url, 
-            cache: false
-           
-        })
-            .done(function (data) {                
-
-                lista_perguntas = data;
-                localStorage.setItem('jogo', JSON.stringify(data));
-                console.log(JSON.parse(localStorage.getItem('jogo')));
-
-                // Jogando na tela 
-                exibe_pergunta(data[0]);                
-
-
-            }).fail(function (XMLHttpRequest, textStatus, errorThrown) {
-                alert("Usuário ou Senha inválido");
-                console.log(errorThrown);
-            });
-
-    }
-
-    var proxima_pergunta = function () {
-      
-        if (lista_perguntas.length == 1) {
-            alert("Acabou o Jogo!!");
-        } else {
-            lista_perguntas.shift();
-            localStorage.setItem('jogo', JSON.stringify(lista_perguntas));
-            console.log(JSON.parse(localStorage.getItem('jogo')));
-            exibe_pergunta(lista_perguntas[0]);
-        }
-
-    }
-
-    var exibe_pergunta = function (pergunta) {
-   
-        $(controles().desc_pergunta).text(pergunta.Descricao);
-        $(controles().alt_A).text(pergunta.Opcao1);
-        $(controles().alt_B).text(pergunta.Opcao2);
-        $(controles().alt_C).text(pergunta.OpcaoCerta);
-    }
     var chuva_de_meteoros = function () {
 
         $(controles().m1).trigger("click");
@@ -97,13 +67,37 @@ var jogo2 = function () {
         // verificar as propriedades com as coord
         console.log(elCoordenadas);
     }
+    function startTimer(duration, display) {
+        var timer = duration, minutes, seconds;
+        setInterval(function () {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+            display.textContent = minutes + ":" + seconds;
+            if (timer == 5) {
+                $('#tempo').addClass('red');
+            }
+            if (timer == 1) {
+                $('#m1').attr("src", "./img/explodir2.gif");
+            }
+            if (--timer < 0) {
+                timer = 0;
+                $('#m1').attr("src", "./img/transparente.png");
+            }
+        }, 1000);
+    }
+    window.onload = function () {
+        var duration = 20 ; // Converter para segundos
+        display = document.querySelector('#tempo'); // selecionando o timer
+        startTimer(duration, display); // iniciando o timer
+    };	
   
     return {
-        lista_alfabeto: lista_alfabeto,     
-        proxima_pergunta: proxima_pergunta,
+        
         chuva_de_meteoros: chuva_de_meteoros,
         queda_meteoro: queda_meteoro,
-        teste: teste
+        preenche_lista_meteoros: preenche_lista_meteoros
 
     };
 }();

@@ -1,6 +1,6 @@
 @font-face {
-    font-family: hp;
-    src: url('../harry_p/HARRYP__.TTF');
+    font-family: digital;
+    src: url('digital_7/digital-7.ttf');
 }
 
 body {
@@ -105,18 +105,28 @@ body#jogo2 .navbar {
     #espaco img {
         max-height: 130px;
     }
-
-#jogo2 .engloba {
-    height: 100%;
-    align-items: center;
-    max-width: 90%;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    align-items: baseline;
+#jogo2 #tempo {
+    position: absolute;
+    text-align: center;
+    left: 0;
+    right: 0;
+    font-family: digital;
+    color: white;
 }
+    #jogo2 #tempo.red {
+    color: red;
+    }
+    #jogo2 .engloba {
+        height: 100%;
+        align-items: center;
+        max-width: 90%;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        align-items: baseline;
+    }
 
 #desc_pergunta {
     display: flex;
