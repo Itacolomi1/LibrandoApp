@@ -74,6 +74,87 @@ body {
         flex-wrap: wrap;
         justify-content: center;
     }
+    #opcoes {
+    max-width: 100%;
+    margin: auto;
+    height: auto;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#pergunta {
+    padding: 30px 0px 30px 0px;
+    background: #e3f1ffed;
+    border: solid #78b9ff;
+}
+#pergunta p {
+    text-align: center;
+    font-size: 40px;
+    margin: 0px;
+}
+
+#jogo1 .engloba {
+    height: 100%;
+    align-items: center;
+    max-width: 90%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#opcoes img {
+    width: auto;
+    max-height: 200px;
+    margin: 0;
+    background: white;
+    border: solid #78b9ff;
+}
+
+#opcoes button {
+    margin: 5px;
+    padding: 0;
+    border: 0;
+}
+
+.engloba2 {
+   
+}
+
+
+#aprendizado {
+    background: #f4e3a6;
+}
+
+#lousa img {
+    max-height: 200px;
+}
+
+#lousa {
+    background-image: url(../img/lousa.png);
+    max-width: 100%;
+    height: 460px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+#alfabeto {
+    max-width: 800px;
+    height: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+    #alfabeto button {
+        margin: 5px;
+    }
 
 #logo-titulo {
     max-width: 200px;

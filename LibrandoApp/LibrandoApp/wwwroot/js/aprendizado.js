@@ -14,7 +14,7 @@ var aprendizado = function () {
 
     var Trocar_Imagem = function (letra) {
         
-        var imagem = letra + '.jpg';
+        var imagem = letra + '.png';
 
         $(controles().imagem).attr("src", "./img/alfabeto/" + imagem);
 
