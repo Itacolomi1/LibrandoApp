@@ -2,8 +2,9 @@
 
 
 $(document).ready(function () {
-    jogo2.lista_alfabeto();
-    //jogo2.chuva_de_meteoros();
+    //jogo2.lista_alfabeto();
+    jogo2.chuva_de_meteoros();
+    jogo2.teste();
 
 });
 
@@ -87,15 +88,22 @@ var jogo2 = function () {
     }
 
     var queda_meteoro = function (elemento) {
-        elemento.style.top = '1000px';
+        elemento.style.top = '400px';
     }
-
+    var teste = function (){
+        let el = document.getElementById('m1');
+        // utiliza método
+        let elCoordenadas = el.getBoundingClientRect();
+        // verificar as propriedades com as coord
+        console.log(elCoordenadas);
+    }
   
     return {
         lista_alfabeto: lista_alfabeto,     
         proxima_pergunta: proxima_pergunta,
         chuva_de_meteoros: chuva_de_meteoros,
-        queda_meteoro: queda_meteoro
+        queda_meteoro: queda_meteoro,
+        teste: teste
 
     };
 }();
