@@ -14,12 +14,12 @@ var jogo2 = function () {
     var preenche_lista_meteoros = function () {
         
         for (var x = 0; x < 4; x++) {
+            meteoro = new Object();
             meteoro.letra = lista_alfabeto[x];
             meteoro.status = 0;
-            lista_meteoros[x] = meteoro;
+            lista_meteoros.push(meteoro);
         }
-        debugger;
-        lista_meteoros = lista_alfabeto
+     
         Trocar_Imagem(controles().m1, lista_meteoros[0].letra);
         Trocar_Imagem(controles().m2, lista_meteoros[1].letra);
         Trocar_Imagem(controles().m3, lista_meteoros[2].letra);
@@ -60,13 +60,67 @@ var jogo2 = function () {
     var queda_meteoro = function (elemento) {
         elemento.style.top = '400px';
     }
-    var teste = function (){
-        let el = document.getElementById('m1');
-        // utiliza método
-        let elCoordenadas = el.getBoundingClientRect();
-        // verificar as propriedades com as coord
-        console.log(elCoordenadas);
+
+    var valida_meteoro = function (letra) {        
+        retorno = lista_meteoros.find(x => x.letra == letra)
+        if (retorno != null) {
+            lista_meteoros.find(x => x.letra == letra).status = 1;
+
+            var indice = lista_meteoros.indexOf(retorno);
+
+            $(retorna_id_meteoro(indice)).attr("src", "./img/Certo.png");
+
+            console.log("Acertou!")
+        } else {
+            console.log("Errou!")
+        }
     }
+
+    var retorna_id_meteoro = function (indice) {
+
+        switch (indice) {
+
+            case 0:
+                return controles().m1;
+                break;
+
+            case 1:
+                return controles().m2;
+                break;
+
+            case 2:
+                return controles().m3;
+                break;
+
+            case 3:
+                return controles().m4;
+                break;
+
+        }
+
+    }
+
+    var valida_explosao = function () {
+
+        for (var x = 0; x < 4; x++) {
+            debugger;
+            if (lista_meteoros[x].status != 1) {                
+                $(retorna_id_meteoro(x)).attr("src", "./img/explodir2.gif");
+            }
+            
+        }
+    }
+
+    var limpa_explosao = function () {
+
+        for (var x = 0; x < 4; x++) {
+           
+            $(retorna_id_meteoro(x)).attr("src", "./img/transparente.png");
+            
+
+        }
+    }
+
     function startTimer(duration, display) {
         var timer = duration, minutes, seconds;
         setInterval(function () {
@@ -79,14 +133,15 @@ var jogo2 = function () {
                 $('#tempo').addClass('red');
             }
             if (timer == 1) {
-                $('#m1').attr("src", "./img/explodir2.gif");
+                valida_explosao();
             }
             if (--timer < 0) {
                 timer = 0;
-                $('#m1').attr("src", "./img/transparente.png");
+                limpa_explosao();
             }
         }, 1000);
     }
+
     window.onload = function () {
         var duration = 20 ; // Converter para segundos
         display = document.querySelector('#tempo'); // selecionando o timer
@@ -97,7 +152,8 @@ var jogo2 = function () {
         
         chuva_de_meteoros: chuva_de_meteoros,
         queda_meteoro: queda_meteoro,
-        preenche_lista_meteoros: preenche_lista_meteoros
+        preenche_lista_meteoros: preenche_lista_meteoros,
+        valida_meteoro: valida_meteoro
 
     };
 }();
