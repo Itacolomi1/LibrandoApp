@@ -1,6 +1,6 @@
 @font-face {
-    font-family: hp;
-    src: url('../harry_p/HARRYP__.TTF');
+    font-family: digital;
+    src: url('digital_7/digital-7.ttf');
 }
 
 body {
@@ -74,6 +74,76 @@ body {
         flex-wrap: wrap;
         justify-content: center;
     }
+
+#jogo2 {
+    background-image: url(../img/espaco.gif);
+}
+
+body#jogo2 .navbar {
+    background: #0f1215;
+}
+
+#jogo2 footer {
+    background: black;
+}
+
+    #jogo2 footer p {
+        color: white;
+    }
+
+#jogo2 button.proxima {
+    background: #80127e;
+    color: white;
+    border: 4px solid black;
+    border-radius: 26px;
+}
+
+#espaco {
+    margin-top: 5px;
+}
+
+    #espaco img {
+        max-height: 130px;
+    }
+#jogo2 #tempo {
+    position: absolute;
+    text-align: center;
+    left: 0;
+    right: 0;
+    font-family: digital;
+    color: white;
+}
+    #jogo2 #tempo.red {
+    color: red;
+    }
+    #jogo2 .engloba {
+        height: 100%;
+        align-items: center;
+        max-width: 90%;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        align-items: baseline;
+    }
+
+#desc_pergunta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 300px;
+}
+
+    #desc_pergunta button {
+        margin: 5px;
+        background: #fccf3f;
+        color: black;
+        border: 4px solid #fd8f31;
+        font-weight: bold;
+    }
+
     #opcoes {
     max-width: 100%;
     margin: auto;
@@ -95,6 +165,10 @@ body {
     margin: 0px;
 }
 
+#jogo2 #logo-titulo {
+    zoom: 150%;
+    margin-top: -3px;
+}
 #jogo1 .engloba {
     height: 100%;
     align-items: center;
@@ -450,7 +524,20 @@ footer .texto {
     }
 }
 
-.meteoro {
+.meteoro_rapido {
+    position: relative;
+    cursor: pointer;
+    width: 177px;
+    height: 160px;
+    left: 0px;
+    top: -150px;
+    /* transition: top 5s cubic-bezier(x1, y1, x2, y2); */
+    /* x-> tempo */
+    /* y-> deslocamento */
+    transition: top 20s cubic-bezier(0.0, 0, 0.8, 1);
+}
+
+.meteoro_medio {
     position: relative;
     cursor: pointer;
     width: 177px;
@@ -460,5 +547,18 @@ footer .texto {
     /* transition: top 5s cubic-bezier(x1, y1, x2, y2); */
     /* x-> tempo */
     /* y-> deslocamento */
-    transition: top 5s cubic-bezier(0.0, 0, 0.2, 1);
+    transition: top 20s cubic-bezier(0.2, 0, 1, 1);
+}
+
+.meteoro_devagar {
+    position: relative;
+    cursor: pointer;
+    width: 177px;
+    height: 160px;
+    left: 0px;
+    top: 0px;
+    /* transition: top 5s cubic-bezier(x1, y1, x2, y2); */
+    /* x-> tempo */
+    /* y-> deslocamento */
+    transition: top 20s cubic-bezier(0.5, 0, 1, 1);
 }

@@ -16,7 +16,7 @@ var aprendizado = function () {
         
         var imagem = letra + '.png';
 
-        $(controles().imagem).attr("src", "./img/alfabeto/" + imagem);
+        $(controles().imagem).attr("src", "./img/Aprendizado/" + imagem);
 
     }
 

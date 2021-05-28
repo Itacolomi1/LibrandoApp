@@ -1,0 +1,64 @@
+﻿@page
+@model LibrandoApp.Pages.AcessoSalaModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Librando</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/salaEspera.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+    <nav class="navbar navbar-light justify-content-between">
+        <a class="navbar-brand" href="/Index">
+            <img id="logo" src="img/logo.png" class="lazy" title="Librando Libras Jogo Educacao" alt="Librando Libras Jogo Educacao">
+            <img id="logo-titulo" src="img/titulo.png" class="lazy" title="Librando Libras Jogo Educacao" alt="Librando Libras Jogo Educacao">
+        </a>
+    </nav>
+
+
+    <div id="divSalaNome">
+        <img id="imagemOla" src="~/img/aluno-acenando.png">
+        <form id="formSalaNome">
+            <div class="form-group col-sm-12">
+                <label>Digite o código da sala!</label>
+                <input type="text" class="form-control" id="cd_sala">
+            </div>
+            <div class="form-group col-sm-12">
+                <button onclick="acesso_sala.valida()" type="button" id="btnCadastrar" class="btn btn-primary">Entrar</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="divAluno">
+        <img id="imagemOla" src="~/img/aluno-acenando.png">
+        <form id="formSalaNome">
+            <div class="form-group col-sm-12">
+                <label>Qual é seu nome?</label>
+                <input type="text" class="form-control" id="idNome">
+            </div>
+            <div class="form-group col-sm-12">
+                <button onclick="acesso_sala.cadastrarJogador()" type="button" id="btnCadastrar" class="btn btn-primary">Cadastrar</button>
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        <div class="texto">
+            <p>2021 © Librando. Todos os direitos reservados. </p>
+        </div>
+    </footer>
+    <script src="./js/acesso_sala.js"></script>
+</body>
+</html>
