@@ -3,6 +3,7 @@
 
 $(document).ready(function () {
     $("#divAluno").hide();
+    acesso_sala.valida_link();
 
 });
 
@@ -45,6 +46,41 @@ var acesso_sala = function () {
                 alert("Usuário ou Senha inválido");
                 console.log(errorThrown);
             });
+
+
+    }
+
+    var valida_link = function () {
+      
+        const urlParams = new URLSearchParams(window.location.search);
+        var code = urlParams.get('code');
+
+        if (code != null) {
+
+            var url = `http://localhost:9090/api/sala/valida?code=${code}`;
+
+            $.ajax({
+                type: "GET",
+                url: url,
+                cache: false
+            })
+                .done(function (data) {
+
+                    if (data != null) {
+                        alert('Seja Bem Vindo');
+                        localStorage.setItem('codigo_sala', data);
+                        $("#divSalaNome").hide();
+                        $("#divAluno").show();
+                    } else {
+                        alert('código errado');
+                    }
+
+
+                }).fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("Usuário ou Senha inválido");
+                    console.log(errorThrown);
+                });
+        }
 
 
     }
@@ -118,6 +154,7 @@ var acesso_sala = function () {
 
     return {
         valida: valida,
-        cadastrarJogador: cadastrarJogador
+        cadastrarJogador: cadastrarJogador,
+        valida_link: valida_link
     };
 }();

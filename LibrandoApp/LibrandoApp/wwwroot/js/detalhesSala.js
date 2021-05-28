@@ -8,6 +8,8 @@
 
     $('#NomeSala').val(nomeSala);
     $('#CodigoSala').val(codigo);
+    $('#link_sala').text('http://librandoapp.azurewebsites.net/AcessoSala?code=' + codigo);
+    $('#link_sala').attr('href', 'http://librandoapp.azurewebsites.net/AcessoSala?code=' + codigo);
 
     $("input[name=groupJogos][value=" + tipoJogo + "]").prop('checked', true);
 
