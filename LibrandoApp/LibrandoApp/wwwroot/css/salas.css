@@ -43,3 +43,14 @@
 #btnCadastrar {
     width: 100%;
 }
+
+#tituloLista {
+    text-align: center;
+    font-family: cursive;
+    margin-top: 2%;
+}
+
+#divTabela {
+    margin-left: 10%;
+    margin-right: 10%;
+}

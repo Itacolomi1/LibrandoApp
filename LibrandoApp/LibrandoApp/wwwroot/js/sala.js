@@ -1,24 +1,32 @@
 ﻿function criarSala() {
-
-   var url = "https://librando.azurewebsites.net/api/sala/register";
+    var url = "https://librando.azurewebsites.net/api/sala/register";
+    var token = localStorage.getItem('user_token').replaceAll("\"", "");
 
     var sala = {};
     sala.roomName = $('#exampleDropdownFormNome').val();
-    
+    sala.tipoJogo = $("input[name='groupJogos']:checked").val();
+    sala.dataCriacao = getDate();
+
     $.ajax({
         type: "POST",
         url: url,
         data: sala,
-        cache: false
+        headers: {
+            Authorization: 'Bearer ' + token
+        }
     })
         .done(function (data) {
-            
-            alert("sala cadastrada");
-            console.log("sala cadastrada");
+            window.location = "https://librandoapp.azurewebsites.net/ListaSalas"
+        })
 
-        }).fail(function (XMLHttpRequest, textStatus, errorThrown) {
-            
+        .fail(function (XMLHttpRequest, textStatus, errorThrown) {
             console.log(errorThrown);
         });
+}
 
+function getDate() {
+    var today = new Date();
+    var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    var time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
+    return date + ' ' + time;
 }
