@@ -19,10 +19,10 @@ var acesso_sala = function () {
 
 
 
-    var valida = function () {
-
-        var codigo = $(controles().cd_sala).val();
-        //window.location = "https://librandoapp.azurewebsites.net/SalaEspera";
+    var valida = function (code) {
+      
+        var codigo = $(controles().cd_sala).val() || code;
+        
         var url = `http://localhost:9090/api/sala/valida?code=${codigo}`;
      
         $.ajax({
@@ -31,7 +31,7 @@ var acesso_sala = function () {
             cache: false
         })
             .done(function (data) {
-
+                
                 if (data != null) {
                     alert('Seja Bem Vindo');
                     localStorage.setItem('codigo_sala', data);
@@ -43,7 +43,8 @@ var acesso_sala = function () {
                
 
             }).fail(function (XMLHttpRequest, textStatus, errorThrown) {
-                alert("Usuário ou Senha inválido");
+                
+                alert("Erro ao validar o código da sala");
                 console.log(errorThrown);
             });
 
@@ -54,35 +55,9 @@ var acesso_sala = function () {
       
         const urlParams = new URLSearchParams(window.location.search);
         var code = urlParams.get('code');
-
         if (code != null) {
-
-            var url = `http://localhost:9090/api/sala/valida?code=${code}`;
-
-            $.ajax({
-                type: "GET",
-                url: url,
-                cache: false
-            })
-                .done(function (data) {
-
-                    if (data != null) {
-                        alert('Seja Bem Vindo');
-                        localStorage.setItem('codigo_sala', data);
-                        $("#divSalaNome").hide();
-                        $("#divAluno").show();
-                    } else {
-                        alert('código errado');
-                    }
-
-
-                }).fail(function (XMLHttpRequest, textStatus, errorThrown) {
-                    alert("Usuário ou Senha inválido");
-                    console.log(errorThrown);
-                });
+            valida(code);
         }
-
-
     }
 
     var cadastrarJogador = function () {
@@ -104,6 +79,7 @@ var acesso_sala = function () {
 
                 localStorage.setItem('codigo_jogador', data);
                 Insere_Jogador_Sala();
+                window.location = "https://librandoapp.azurewebsites.net/SalaEspera";
 
             }).fail(function (XMLHttpRequest, textStatus, errorThrown) {
                 alert("Usuário ou Senha inválido");
@@ -119,7 +95,7 @@ var acesso_sala = function () {
         var aluno_sala = new Object();
 
         aluno_sala.cd_jogador = localStorage.getItem('codigo_jogador');
-       aluno_sala._id = localStorage.getItem('codigo_sala');      
+        aluno_sala._id = localStorage.getItem('codigo_sala');      
         aluno_sala.data = ToDay();
 
 
