@@ -16,7 +16,7 @@
     max-width: 100%;
 }
 
-#divSalaNome {
+#divSalaNome, #divAluno {
     width: 500px;
     height: auto;
     margin: auto;

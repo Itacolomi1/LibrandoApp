@@ -27,7 +27,7 @@
         </a>
     </nav>
 
- 
+
     <div id="divSalaNome">
         <img id="imagemOla" src="~/img/aluno-acenando.png">
         <form id="formSalaNome">
@@ -37,6 +37,19 @@
             </div>
             <div class="form-group col-sm-12">
                 <button onclick="acesso_sala.valida()" type="button" id="btnCadastrar" class="btn btn-primary">Entrar</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="divAluno">
+        <img id="imagemOla" src="~/img/aluno-acenando.png">
+        <form id="formSalaNome">
+            <div class="form-group col-sm-12">
+                <label>Qual é seu nome?</label>
+                <input type="text" class="form-control" id="idNome">
+            </div>
+            <div class="form-group col-sm-12">
+                <button onclick="acesso_sala.cadastrarJogador()" type="button" id="btnCadastrar" class="btn btn-primary">Cadastrar</button>
             </div>
         </form>
     </div>
