@@ -11,6 +11,8 @@
 
     <script src="~/lib/jquery/jquery-3.6.0.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/salas.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="apple-touch-icon" sizes="57x57" href="img/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="img/apple-icon-60x60.png">
@@ -25,7 +27,6 @@
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-    <!-- <link rel="manifest" href="/manifest.json"> -->
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
@@ -33,7 +34,7 @@
 
 </head>
 
-<body id="cadastrosala">
+<body id="salas">
 
     <nav class="navbar navbar-light justify-content-between">
         <a class="navbar-brand" href="\index">
@@ -44,38 +45,35 @@
         <div class="form-inline">
 
         </div>
-
     </nav>
-    <div id="cadastro-sala">
-        <form>
-            <div class="form-group">
-                <label for="exampleDropdownFormNome">Nome da sala</label>
-                <input type="text" class="form-control" id="exampleDropdownFormNome" placeholder="Nome da sala">
 
-                <br />
-                <label>Jogo da sala</label>
-                <fieldset id="groupJogos">
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <input type="radio" value="Quiz" name="groupJogos">
-                            <label> Jogo Quiz </label>
-                        </div>
-                        <div class="col-sm-5">
-                            <input type="radio" value="Meteoro" name="groupJogos">
-                            <label> Jogo Meteoro </label>
-                        </div>
-                    </div>
-                </fieldset>
+    <div id="tituloLista">
+        <h2>Lista de Salas</h2>
+    </div>
 
-            </div>
-            <button onclick="criarSala();return false;" type="button" class="btn btn-primary">Cadastrar</button>
-            <div class="form-group acesso">
-                <label for="exampleDropdownFormLink">Link de acesso</label>
-                <input type="text" class="form-control" id="exampleDropdownFormLink" placeholder="Link de acesso">
-                <label for="exampleDropdownFormCodigo">Código</label>
-                <input type="text" class="form-control" id="exampleDropdownFormCodigo" placeholder="Código">
-            </div>
-        </form>
+    <div id="divTabela">
+        <table id="tabelaSalas" class="display" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>Ações</th>
+                    <th>Código de Acesso</th>
+                    <th>Nome</th>
+                    <th>Jogo</th>
+                    <th>Status</th>
+                    <th>Data</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
     </div>
 
     <footer>
@@ -85,9 +83,12 @@
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="./js/sala.js"></script>
+    <script src="./js/listaSalas.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"></script>
+    <script src="https://cdn.datatables.net/datetime/1.0.3/js/dataTables.dateTime.min.js"></script>
+
 </body>
 
 </html>

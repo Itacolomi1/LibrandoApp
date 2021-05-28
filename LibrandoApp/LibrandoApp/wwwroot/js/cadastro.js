@@ -7,7 +7,6 @@ function onDeviceReady() {
 }
 
 function cadastrarUsuario() {
-    //var url = "http://localhost:9090/api/usuario/register";
     var url = "https://librando.azurewebsites.net/api/usuario/register";
 
     var nomeUsuario = $('#exampleDropdownFormNome1').val();

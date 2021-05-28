@@ -8,9 +8,9 @@
 
 <head>
     <title>Librando</title>
-
-    <script src="~/lib/jquery/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="~/css/salas.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="apple-touch-icon" sizes="57x57" href="img/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="img/apple-icon-60x60.png">
@@ -25,18 +25,15 @@
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-    <!-- <link rel="manifest" href="/manifest.json"> -->
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
 </head>
-
-<body id="cadastrosala">
+<body>
 
     <nav class="navbar navbar-light justify-content-between">
-        <a class="navbar-brand" href="\index">
+        <a class="navbar-brand" href="/Index">
             <img id="logo" src="img/logo.png" class="lazy" title="Librando Libras Jogo Educacao" alt="Librando Libras Jogo Educacao">
             <img id="logo-titulo" src="img/titulo.png" class="lazy" title="Librando Libras Jogo Educacao" alt="Librando Libras Jogo Educacao">
 
@@ -46,13 +43,14 @@
         </div>
 
     </nav>
-    <div id="cadastro-sala">
-        <form>
+    <div id="cadastrar">
+        <form class="px-4 py-3" id="formDetalhesSala">
             <div class="form-group">
-                <label for="exampleDropdownFormNome">Nome da sala</label>
-                <input type="text" class="form-control" id="exampleDropdownFormNome" placeholder="Nome da sala">
-
-                <br />
+                <label>Nome da Sala</label>
+                <input type="text" class="form-control" id="NomeSala">
+            </div>
+            <br />
+            <div class="form-group">
                 <label>Jogo da sala</label>
                 <fieldset id="groupJogos">
                     <div class="row">
@@ -66,28 +64,30 @@
                         </div>
                     </div>
                 </fieldset>
-
+                <div class="form-group">
+                    <label>Código da Sala</label>
+                    <input type="text" class="form-control" id="CodigoSala" readonly>
+                </div>
             </div>
-            <button onclick="criarSala();return false;" type="button" class="btn btn-primary">Cadastrar</button>
-            <div class="form-group acesso">
-                <label for="exampleDropdownFormLink">Link de acesso</label>
-                <input type="text" class="form-control" id="exampleDropdownFormLink" placeholder="Link de acesso">
-                <label for="exampleDropdownFormCodigo">Código</label>
-                <input type="text" class="form-control" id="exampleDropdownFormCodigo" placeholder="Código">
+            <div class="form-group">
+                <label>Status</label>
+                <div class="form-group">
+                    <input type="checkbox" id="Status">
+                    <label>Ativo</label>
+                </div>
             </div>
+            <button class="btn btn-primary" href="#" onclick="editarSala();return false;" id="btnSalvar">Salvar</button>
         </form>
     </div>
 
     <footer>
         <div class="texto">
             <p>2021 © Librando. Todos os direitos reservados. </p>
-
         </div>
     </footer>
 
+    <script src="~/js/detalhesSala.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="./js/sala.js"></script>
 </body>
-
 </html>
