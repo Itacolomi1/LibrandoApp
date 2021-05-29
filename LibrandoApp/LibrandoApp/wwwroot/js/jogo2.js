@@ -1,5 +1,6 @@
 ﻿var lista_meteoros = [];
-var lista_alfabeto = ["J", "K", "L", "M"];
+var lista_alfabeto = ["A","B","C","D","E","F","G","H","I", "J", "K", "L", "M","O","P","Q","R","S","T","U", "V", "X", "Y","W","Z"];
+var pontos = 0;
 
 var meteoro = {};
 
@@ -14,8 +15,9 @@ var jogo2 = function () {
     var preenche_lista_meteoros = function () {
         
         for (var x = 0; x < 4; x++) {
+            debugger;
             meteoro = new Object();
-            meteoro.letra = lista_alfabeto[x];
+            meteoro.letra = get_random_letra();
             meteoro.status = 0;
             lista_meteoros.push(meteoro);
         }
@@ -29,6 +31,11 @@ var jogo2 = function () {
         var imagem = letra + '.png';
         $(id).attr("src", "./img/Meteoros/" + imagem);
 
+    }
+
+    var get_random_letra = function () {
+
+        return lista_alfabeto[Math.floor(Math.random() * lista_alfabeto.length)];
     }
     //Ids dos elementos da tela
     var controles = function () {
@@ -52,9 +59,8 @@ var jogo2 = function () {
         $(controles().m2).trigger("click");
         $(controles().m3).trigger("click");
         $(controles().m4).trigger("click");
-        
 
-        
+
     }
 
     var queda_meteoro = function (elemento) {
@@ -64,6 +70,8 @@ var jogo2 = function () {
     var valida_meteoro = function (letra) {        
         retorno = lista_meteoros.find(x => x.letra == letra)
         if (retorno != null) {
+           
+            pontos = pontos + 10;
             lista_meteoros.find(x => x.letra == letra).status = 1;
 
             var indice = lista_meteoros.indexOf(retorno);
@@ -72,6 +80,12 @@ var jogo2 = function () {
 
             console.log("Acertou!")
         } else {
+          
+            if (pontos > 0) {
+
+                pontos = pontos - 5;
+            }
+            
             console.log("Errou!")
         }
     }
@@ -103,7 +117,7 @@ var jogo2 = function () {
     var valida_explosao = function () {
 
         for (var x = 0; x < 4; x++) {
-            debugger;
+           
             if (lista_meteoros[x].status != 1) {                
                 $(retorna_id_meteoro(x)).attr("src", "./img/explodir2.gif");
             }
@@ -115,8 +129,7 @@ var jogo2 = function () {
 
         for (var x = 0; x < 4; x++) {
            
-            $(retorna_id_meteoro(x)).attr("src", "./img/transparente.png");
-            
+            $(retorna_id_meteoro(x)).attr("src", "./img/transparente.png");            
 
         }
     }
@@ -138,6 +151,9 @@ var jogo2 = function () {
             if (--timer < 0) {
                 timer = 0;
                 limpa_explosao();
+                
+                localStorage.setItem('pontuacao', pontos.toString());
+                UpdatePontos();
             }
         }, 1000);
     }
@@ -147,13 +163,40 @@ var jogo2 = function () {
         display = document.querySelector('#tempo'); // selecionando o timer
         startTimer(duration, display); // iniciando o timer
     };	
+
+    var UpdatePontos = function () {
+        //var url = "http://localhost:9090/api/sala/pontuacao";
+        var url = "https://librando.azurewebsites.net/api/sala/pontuacao";
+        var pontuacao = new Object();
+
+        pontuacao._id = localStorage.getItem('codigo_sala');
+        pontuacao.pontos = localStorage.getItem('pontuacao');
+        pontuacao.id_jogador = localStorage.getItem('codigo_jogador');
+       
+        $.ajax({
+            type: "PUT",
+            url: url,
+            data: pontuacao,
+            cache: false
+        })
+            .done(function (data) {
+
+                alert("Deu bom!");
+
+            }).fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("erro na hora de inserir pontuacao");
+                console.log(errorThrown);
+            });
+
+    }
   
     return {
         
         chuva_de_meteoros: chuva_de_meteoros,
         queda_meteoro: queda_meteoro,
         preenche_lista_meteoros: preenche_lista_meteoros,
-        valida_meteoro: valida_meteoro
-
+        valida_meteoro: valida_meteoro,
+        atualiza_pontos: UpdatePontos
     };
+      
 }();
