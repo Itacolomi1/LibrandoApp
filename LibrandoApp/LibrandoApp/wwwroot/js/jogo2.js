@@ -1,5 +1,5 @@
 ﻿var lista_meteoros = [];
-var lista_alfabeto = ["J", "K", "L", "M"];
+var lista_alfabeto = ["A","B","C","D","E","F","G","H","I", "J", "K", "L", "M","O","P","Q","R","S","T","U", "V", "X", "Y","W","Z"];
 var pontos = 0;
 
 var meteoro = {};
@@ -15,8 +15,9 @@ var jogo2 = function () {
     var preenche_lista_meteoros = function () {
         
         for (var x = 0; x < 4; x++) {
+            debugger;
             meteoro = new Object();
-            meteoro.letra = lista_alfabeto[x];
+            meteoro.letra = get_random_letra();
             meteoro.status = 0;
             lista_meteoros.push(meteoro);
         }
@@ -30,6 +31,11 @@ var jogo2 = function () {
         var imagem = letra + '.png';
         $(id).attr("src", "./img/Meteoros/" + imagem);
 
+    }
+
+    var get_random_letra = function () {
+
+        return lista_alfabeto[Math.floor(Math.random() * lista_alfabeto.length)];
     }
     //Ids dos elementos da tela
     var controles = function () {
