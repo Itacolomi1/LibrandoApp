@@ -1,5 +1,7 @@
 ﻿function criarSala() {
-    var url = "https://librando.azurewebsites.net/api/sala/register";
+    //var url = "https://librando.azurewebsites.net/api/sala/register";
+    var url = "http://localhost:9090/api/sala/register";
+
     var token = localStorage.getItem('user_token').replaceAll("\"", "");
 
     var sala = {};
@@ -7,21 +9,23 @@
     sala.tipoJogo = $("input[name='groupJogos']:checked").val();
     sala.dataCriacao = getDate();
 
-    $.ajax({
-        type: "POST",
-        url: url,
-        data: sala,
-        headers: {
-            Authorization: 'Bearer ' + token
-        }
-    })
-        .done(function (data) {
-            window.location = "https://librandoapp.azurewebsites.net/ListaSalas"
+    if (sala.roomName != null && sala.tipoJogo != null) {
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: sala,
+            headers: {
+                Authorization: 'Bearer ' + token
+            }
         })
+            .done(function (data) {
+                window.location = "https://librandoapp.azurewebsites.net/ListaSalas"
+            })
 
-        .fail(function (XMLHttpRequest, textStatus, errorThrown) {
-            console.log(errorThrown);
-        });
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                console.log(errorThrown);
+            });
+    }
 }
 
 function getDate() {
