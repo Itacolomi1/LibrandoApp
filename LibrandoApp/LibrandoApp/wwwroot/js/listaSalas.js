@@ -5,7 +5,8 @@
     $('#tabelaSalas').DataTable({
         dom: "Bfrtip",
         ajax: {
-            url: "http://localhost:9090/api/sala/",
+            //url: "http://localhost:9090/api/sala/",
+            url: "https://librando.azurewebsites.net/api/sala/",         
             type: 'GET',
             headers: {
                 Authorization: 'Bearer ' + token

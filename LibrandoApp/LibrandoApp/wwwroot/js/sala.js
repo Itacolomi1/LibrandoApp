@@ -1,6 +1,6 @@
 ﻿function criarSala() {
-    //var url = "https://librando.azurewebsites.net/api/sala/register";
-    var url = "http://localhost:9090/api/sala/register";
+    var url = "https://librando.azurewebsites.net/api/sala/register";
+    //var url = "http://localhost:9090/api/sala/register";
 
     var token = localStorage.getItem('user_token').replaceAll("\"", "");
 

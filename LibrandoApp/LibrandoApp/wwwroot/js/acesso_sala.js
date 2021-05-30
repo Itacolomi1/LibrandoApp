@@ -22,8 +22,9 @@ var acesso_sala = function () {
     var valida = function (code) {
       
         var codigo = $(controles().cd_sala).val() || code;
-        
-        var url = `http://localhost:9090/api/sala/valida?code=${codigo}`;
+
+        var url = 'https://librando.azurewebsites.net/api/sala/valida?code=${codigo}';
+       // var url = `http://localhost:9090/api/sala/valida?code=${codigo}`;
      
         $.ajax({
             type: "GET",

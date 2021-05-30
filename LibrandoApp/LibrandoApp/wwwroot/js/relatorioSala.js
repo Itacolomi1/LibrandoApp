@@ -7,8 +7,8 @@
     $('#tabelaRelatorio').DataTable({
         dom: "Bfrtip",
         ajax: {
-            // url: "https://librando.azurewebsites.net/api/sala/jogadores",
-            url: "http://localhost:9090/api/sala/jogadores",
+            url: "https://librando.azurewebsites.net/api/sala/jogadores",
+            //url: "http://localhost:9090/api/sala/jogadores",
             type: 'POST',
             data: { _id: id },
             headers: {
