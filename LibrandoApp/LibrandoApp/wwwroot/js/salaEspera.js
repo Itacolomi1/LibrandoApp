@@ -4,32 +4,27 @@
 
 function mostrarSalaEspera() {
     $("#formSalaEspera").show();
-    //$("#divSalaNome").hide();
+    $("#divSalaNome").hide();
 }
-//$(function () { $("#formSalaEspera").hide(); });
 
-//function cadastrarJogador() {
+function direciona_jogo() {
 
-//    var url = "https://librando.azurewebsites.net/api/jogador/registra";
+    if (localStorage.getItem('status_sala') == 0) {
+        alert("Espere a responsável liberar o jogo");
+    }
+    else {
+        if (localStorage.getItem('tipo_jogo') == 'Meteoro') {
+            window.location = "https://librandoapp.azurewebsites.net/Jogo2";
+        }
+        else {
+            window.location = "https://librandoapp.azurewebsites.net/PrimeiroJogo";
+        }
 
-//    var jogador = {};
-//    jogador.personName = $('#idNome').val();
 
 
-//    $.ajax({
-//        type: "POST",
-//        url: url,
-//        data: jogador,
-//        cache: false
-//    })
-//        .done(function (data) {
-            
-//            mostrarSalaEspera();
-//            console.log("Jogador foi cadastrado");
 
-//        }).fail(function (XMLHttpRequest, textStatus, errorThrown) {
-//            alert("Usuário ou Senha inválido");
-//            console.log(errorThrown);
-//        });
+    }
+        
+    
 
-//}
+}
