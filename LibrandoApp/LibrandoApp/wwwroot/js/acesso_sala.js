@@ -23,7 +23,7 @@ var acesso_sala = function () {
       
         var codigo = $(controles().cd_sala).val() || code;
 
-        var url = 'https://librando.azurewebsites.net/api/sala/valida?code=${codigo}';
+        var url = 'https://librando.azurewebsites.net/api/sala/valida?code=' + codigo;
        // var url = `http://localhost:9090/api/sala/valida?code=${codigo}`;
      
         $.ajax({
@@ -32,7 +32,7 @@ var acesso_sala = function () {
             cache: false
         })
             .done(function (data) {
-                
+            
                 if (data != null) {
                     alert('Seja Bem Vindo');
                     localStorage.setItem('codigo_sala', data);
@@ -92,11 +92,12 @@ var acesso_sala = function () {
     var Insere_Jogador_Sala = function () {
         //var url = "http://localhost:9090/api/sala/createJogador";
         var url = "https://librando.azurewebsites.net/api/sala/createJogador";
-
+       
         var aluno_sala = new Object();
 
         aluno_sala.cd_jogador = localStorage.getItem('codigo_jogador');
-        aluno_sala._id = localStorage.getItem('codigo_sala');      
+        aluno_sala._id = localStorage.getItem('codigo_sala');
+        aluno_sala.personName = $('#idNome').val();
         aluno_sala.data = ToDay();
 
 
