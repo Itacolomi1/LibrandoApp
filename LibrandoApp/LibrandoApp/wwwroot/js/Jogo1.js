@@ -55,11 +55,15 @@ var jogo1 = function () {
     var proxima_pergunta = function (id) {
        
         if (lista_perguntas.length == 1) {
-
-           
-            UpdatePontos();
-            
-            alert("Acabou o Jogo!!");
+            if ($(id).val() == lista_perguntas[0].OpcaoCerta) {
+                Soma_Pontos();
+            }
+            else {
+                Tira_Pontos();
+            }
+            UpdatePontos(); 
+            var zero = 0;
+            localStorage.setItem('pontuacao', zero.toString())
         } else {
             if ($(id).val() == lista_perguntas[0].OpcaoCerta) {
                 Soma_Pontos();
@@ -124,8 +128,8 @@ var jogo1 = function () {
             cache: false
         })
             .done(function (data) {
-
-                alert("Deu bom!");
+                alert("O jogo acabou!! A sua pontuação foi: " + pontuacao.pontos);
+                window.location = "https://librandoapp.azurewebsites.net/Aprendizado";
 
             }).fail(function (XMLHttpRequest, textStatus, errorThrown) {
                 alert("erro na hora de inserir pontuacao");
