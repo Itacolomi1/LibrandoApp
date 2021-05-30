@@ -96,7 +96,7 @@ var jogo1 = function () {
     }
 
     var Tira_Pontos = function () {
-        alert("Você errou! + 10 pts")
+        alert("Você errou! -5 pts")
         if (pontos > 0) {
 
             pontos = pontos - 5;
