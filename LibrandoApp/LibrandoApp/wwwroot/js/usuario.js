@@ -20,7 +20,7 @@ function logarUsuario() {
             console.log(data);
 
         }).fail(function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("Usuário ou Senha inválido");
+            alert("Usuario ou Senha invalido");
             console.log(errorThrown);
         });
 
