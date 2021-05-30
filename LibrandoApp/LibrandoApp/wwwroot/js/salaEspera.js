@@ -22,7 +22,7 @@ function direciona_jogo() {
     })
         .done(function (data) {
 
-            if (!sala) {
+            if (!data) {
                 alert("Espere a responsável liberar o jogo");
             }
             else {
