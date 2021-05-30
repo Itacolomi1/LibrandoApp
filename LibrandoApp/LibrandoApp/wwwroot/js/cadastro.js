@@ -20,7 +20,8 @@ function cadastrarUsuario() {
         cache: false
     })
         .done(function (data) {
-            console.log(data);
+            alert("Usuário cadastrado com sucesso");
+            window.location = "https://librandoapp.azurewebsites.net/Login";
 
         })
 
