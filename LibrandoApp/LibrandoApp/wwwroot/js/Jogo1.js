@@ -25,8 +25,8 @@ var jogo1 = function () {
 
     var lista_alfabeto = function () {
 
-        var url = "http://localhost:9090/api/jogo1";
-        //var url = "https://librando.azurewebsites.net/api/jogo1";
+        //var url = "http://localhost:9090/api/jogo1";
+        var url = "https://librando.azurewebsites.net/api/jogo1";
 
 
         $.ajax({
@@ -53,7 +53,7 @@ var jogo1 = function () {
     }
 
     var proxima_pergunta = function (id) {
-        debugger
+       
         if (lista_perguntas.length == 1) {
 
            
@@ -109,8 +109,8 @@ var jogo1 = function () {
     }
 
     var UpdatePontos = function () {
-        var url = "http://localhost:9090/api/sala/pontuacao";
-        // var url = "https://librando.azurewebsites.net/api/sala/pontuacao";
+       // var url = "http://localhost:9090/api/sala/pontuacao";
+        var url = "https://librando.azurewebsites.net/api/sala/pontuacao";
         var pontuacao = new Object();
 
         pontuacao._id = localStorage.getItem('codigo_sala');

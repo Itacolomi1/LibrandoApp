@@ -15,7 +15,7 @@ var jogo2 = function () {
     var preenche_lista_meteoros = function () {
         
         for (var x = 0; x < 4; x++) {
-            debugger;
+           
             meteoro = new Object();
             meteoro.letra = get_random_letra();
             meteoro.status = 0;
