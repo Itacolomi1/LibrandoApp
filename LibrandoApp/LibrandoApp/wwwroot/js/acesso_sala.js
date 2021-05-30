@@ -119,8 +119,7 @@ var acesso_sala = function () {
             cache: false
         })
             .done(function (data) {
-
-                alert("Deu bom!");
+               
 
             }).fail(function (XMLHttpRequest, textStatus, errorThrown) {
                 alert("erro na hora de inserir jogador");
