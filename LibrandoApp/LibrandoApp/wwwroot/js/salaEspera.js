@@ -4,32 +4,32 @@
 
 function mostrarSalaEspera() {
     $("#formSalaEspera").show();
-    $("#divSalaNome").hide();
+    //$("#divSalaNome").hide();
 }
-$(function () { $("#formSalaEspera").hide(); });
+//$(function () { $("#formSalaEspera").hide(); });
 
-function cadastrarJogador() {
+//function cadastrarJogador() {
 
-    var url = "https://librando.azurewebsites.net/api/jogador/registra";
+//    var url = "https://librando.azurewebsites.net/api/jogador/registra";
 
-    var jogador = {};
-    jogador.personName = $('#idNome').val();
+//    var jogador = {};
+//    jogador.personName = $('#idNome').val();
 
 
-    $.ajax({
-        type: "POST",
-        url: url,
-        data: jogador,
-        cache: false
-    })
-        .done(function (data) {
+//    $.ajax({
+//        type: "POST",
+//        url: url,
+//        data: jogador,
+//        cache: false
+//    })
+//        .done(function (data) {
             
-            mostrarSalaEspera();
-            console.log("Jogador foi cadastrado");
+//            mostrarSalaEspera();
+//            console.log("Jogador foi cadastrado");
 
-        }).fail(function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("Usuário ou Senha inválido");
-            console.log(errorThrown);
-        });
+//        }).fail(function (XMLHttpRequest, textStatus, errorThrown) {
+//            alert("Usuário ou Senha inválido");
+//            console.log(errorThrown);
+//        });
 
-}
+//}
