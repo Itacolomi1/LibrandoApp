@@ -35,25 +35,30 @@ function editarSala() {
 
     var status = ckStatus ? 1 : 0;
 
-    $.ajax({
-        type: "PUT",
-        url: url,
-        data: { _id: id, roomName: nomeSala, status: status, cod_acesso: codigo },
-        headers: {
-            Authorization: 'Bearer ' + token
-        }
-    })
-        .done(function (data) {
-            console.log(data);
-
+    if (nomeSala != null && nomeSala != "") {
+        $.ajax({
+            type: "PUT",
+            url: url,
+            data: { _id: id, roomName: nomeSala, status: status },
+            headers: {
+                Authorization: 'Bearer ' + token
+            }
         })
+            .done(function (data) {
+                console.log(data);
 
-        .fail(function (XMLHttpRequest, textStatus, errorThrown) {
-            console.log(errorThrown);
-        })
+            })
 
-        .always(function () {
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                console.log(errorThrown);
+            })
 
-            window.location = "https://librandoapp.azurewebsites.net/ListaSalas"
-        });
+            .always(function () {
+
+                window.location = "https://librandoapp.azurewebsites.net/ListaSalas"
+            });
+    }
+    else {
+        alert('Preencha o nome da sala');
+    }
 }

@@ -24,12 +24,12 @@
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-
+    <link rel="manifest" href="/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   
+
 </head>
 
 <body id="jogo2">
@@ -46,7 +46,17 @@
         </div>
 
     </nav>
+    <div id="instrucao">
+        <h1>Jogo Meteoros</h1>
+        <p>Ao iniciar o jogo você terá 20 segundos para abertar o botão com a letra corresponde a cada letra de sinal desenhada nos meteoros. </p>
+        <button class="btn btn-primary" onclick="jogo2.chuva_de_meteoros(), document.getElementById('player').play(), jogo2.cronometro(), jogo2.fecha_instrucao()">Iniciar</button>
+    </div>
     <div class="engloba">
+        <audio loop autoplay  id="musica">
+            <source src="musica/musica.mp3" type="audio/mp3">
+        </audio>
+        <audio id="player" loop src="musica/musica.mp3"></audio>
+
         <div id="espaco">
 
             <img class="meteoro_rapido" src="img/meteoros/a.png" id="m1" onclick="jogo2.queda_meteoro(this)">
@@ -57,36 +67,37 @@
 
         </div>
         <div id="desc_pergunta">
-            <button onclick="jogo2.valida_meteoro('A')" type="button" class="btn btn-primary">A</button>
-            <button onclick="jogo2.valida_meteoro('B')" type="button" class="btn btn-primary">B</button>
-            <button onclick="jogo2.valida_meteoro('C')" type="button" class="btn btn-primary">C</button>
-            <button onclick="jogo2.valida_meteoro('D')" type="button" class="btn btn-primary">D</button>
-            <button onclick="jogo2.valida_meteoro('E')" type="button" class="btn btn-primary">E</button>
-            <button onclick="jogo2.valida_meteoro('F')" type="button" class="btn btn-primary">F</button>
-            <button onclick="jogo2.valida_meteoro('G')" type="button" class="btn btn-primary">G</button>
-            <button onclick="jogo2.valida_meteoro('H')" type="button" class="btn btn-primary">H</button>
-            <button onclick="jogo2.valida_meteoro('I')" type="button" class="btn btn-primary">I</button>
-            <button onclick="jogo2.valida_meteoro('J')" type="button" class="btn btn-primary">J</button>
-            <button onclick="jogo2.valida_meteoro('K')" type="button" class="btn btn-primary">K</button>
-            <button onclick="jogo2.valida_meteoro('L')" type="button" class="btn btn-primary">L</button>
-            <button onclick="jogo2.valida_meteoro('M')" type="button" class="btn btn-primary">M</button>
-            <button onclick="jogo2.valida_meteoro('N')" type="button" class="btn btn-primary">N</button>
-            <button onclick="jogo2.valida_meteoro('O')" type="button" class="btn btn-primary">O</button>
-            <button onclick="jogo2.valida_meteoro('P')" type="button" class="btn btn-primary">P</button>
-            <button onclick="jogo2.valida_meteoro('Q')" type="button" class="btn btn-primary">Q</button>
-            <button onclick="jogo2.valida_meteoro('R')" type="button" class="btn btn-primary">R</button>
-            <button onclick="jogo2.valida_meteoro('S')" type="button" class="btn btn-primary">S</button>
-            <button onclick="jogo2.valida_meteoro('T')" type="button" class="btn btn-primary">T</button>
-            <button onclick="jogo2.valida_meteoro('U')" type="button" class="btn btn-primary">U</button>
-            <button onclick="jogo2.valida_meteoro('V')" type="button" class="btn btn-primary">V</button>
-            <button onclick="jogo2.valida_meteoro('W')" type="button" class="btn btn-primary">W</button>
-            <button onclick="jogo2.valida_meteoro('X')" type="button" class="btn btn-primary">X</button>
-            <button onclick="jogo2.valida_meteoro('Y')" type="button" class="btn btn-primary">Y</button>
-            <button onclick="jogo2.valida_meteoro('Z')" type="button" class="btn btn-primary">Z</button>
+            <button onclick="jogo2.valida_meteoro('A'),document.getElementById('player').play()" type="button" class="btn btn-primary">A</button>
+            <button onclick="jogo2.valida_meteoro('B'),document.getElementById('player').play()" type="button" class="btn btn-primary">B</button>
+            <button onclick="jogo2.valida_meteoro('C'),document.getElementById('player').play()" type="button" class="btn btn-primary">C</button>
+            <button onclick="jogo2.valida_meteoro('D'),document.getElementById('player').play()" type="button" class="btn btn-primary">D</button>
+            <button onclick="jogo2.valida_meteoro('E'),document.getElementById('player').play()" type="button" class="btn btn-primary">E</button>
+            <button onclick="jogo2.valida_meteoro('F'),document.getElementById('player').play()" type="button" class="btn btn-primary">F</button>
+            <button onclick="jogo2.valida_meteoro('G'),document.getElementById('player').play()" type="button" class="btn btn-primary">G</button>
+            <button onclick="jogo2.valida_meteoro('H'),document.getElementById('player').play()" type="button" class="btn btn-primary">H</button>
+            <button onclick="jogo2.valida_meteoro('I'),document.getElementById('player').play()" type="button" class="btn btn-primary">I</button>
+            <button onclick="jogo2.valida_meteoro('J'),document.getElementById('player').play()" type="button" class="btn btn-primary">J</button>
+            <button onclick="jogo2.valida_meteoro('K'),document.getElementById('player').play()" type="button" class="btn btn-primary">K</button>
+            <button onclick="jogo2.valida_meteoro('L'),document.getElementById('player').play()" type="button" class="btn btn-primary">L</button>
+            <button onclick="jogo2.valida_meteoro('M'),document.getElementById('player').play()" type="button" class="btn btn-primary">M</button>
+            <button onclick="jogo2.valida_meteoro('N'),document.getElementById('player').play()" type="button" class="btn btn-primary">N</button>
+            <button onclick="jogo2.valida_meteoro('O'),document.getElementById('player').play()" type="button" class="btn btn-primary">O</button>
+            <button onclick="jogo2.valida_meteoro('P'),document.getElementById('player').play()" type="button" class="btn btn-primary">P</button>
+            <button onclick="jogo2.valida_meteoro('Q'),document.getElementById('player').play()" type="button" class="btn btn-primary">Q</button>
+            <button onclick="jogo2.valida_meteoro('R'),document.getElementById('player').play()" type="button" class="btn btn-primary">R</button>
+            <button onclick="jogo2.valida_meteoro('S'),document.getElementById('player').play()" type="button" class="btn btn-primary">S</button>
+            <button onclick="jogo2.valida_meteoro('T'),document.getElementById('player').play()" type="button" class="btn btn-primary">T</button>
+            <button onclick="jogo2.valida_meteoro('U'),document.getElementById('player').play()" type="button" class="btn btn-primary">U</button>
+            <button onclick="jogo2.valida_meteoro('V'),document.getElementById('player').play()" type="button" class="btn btn-primary">V</button>
+            <button onclick="jogo2.valida_meteoro('W'),document.getElementById('player').play()" type="button" class="btn btn-primary">W</button>
+            <button onclick="jogo2.valida_meteoro('X'),document.getElementById('player').play()" type="button" class="btn btn-primary">X</button>
+            <button onclick="jogo2.valida_meteoro('Y'),document.getElementById('player').play()" type="button" class="btn btn-primary">Y</button>
+            <button onclick="jogo2.valida_meteoro('Z'),document.getElementById('player').play()" type="button" class="btn btn-primary">Z</button>
 
 
         </div>
     </div>
+    
     <footer>
         <div class="texto">
             <p>2021 © Librando. Todos os direitos reservados. </p>
