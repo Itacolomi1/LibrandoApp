@@ -38,6 +38,7 @@ var acesso_sala = function () {
                     localStorage.setItem('codigo_sala', data._id);
                     localStorage.setItem('status_sala', data.status);
                     localStorage.setItem('tipo_jogo', data.tipoJogo);
+                    localStorage.setItem('nome_sala', data.roomName);
                     $("#divSalaNome").hide();
                     $("#divAluno").show();
                 } else {
