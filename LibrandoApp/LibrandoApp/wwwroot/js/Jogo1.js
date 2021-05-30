@@ -90,13 +90,13 @@ var jogo1 = function () {
     }
 
     var Soma_Pontos = function () {
-       
+        alert("Você acertou! + 10 pts")
         pontos = pontos + 10;
         localStorage.setItem('pontuacao', pontos.toString());
     }
 
     var Tira_Pontos = function () {
-
+        alert("Você errou! + 10 pts")
         if (pontos > 0) {
 
             pontos = pontos - 5;

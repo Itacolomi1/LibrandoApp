@@ -6,6 +6,7 @@ $(document).ready(function () {
     acesso_sala.valida_link();
 
 });
+var campo_branco = false;
 
 var acesso_sala = function () {
 
@@ -63,32 +64,39 @@ var acesso_sala = function () {
             valida(code);
         }
     }
-
+   
     var cadastrarJogador = function () {
-
+        campo_branco = false;
         var url = "https://librando.azurewebsites.net/api/jogador/registra";
         //var url = "http://localhost:9090/api/jogador/registra";
 
         var jogador = {};
         jogador.personName = $('#idNome').val();
 
+        valida_campo(jogador.personName);
 
-        $.ajax({
-            type: "POST",
-            url: url,
-            data: jogador,
-            cache: false
-        })
-            .done(function (data) {
+        if (!campo_branco) {
 
-                localStorage.setItem('codigo_jogador', data);
-                Insere_Jogador_Sala();
-                window.location = "https://librandoapp.azurewebsites.net/SalaEspera";
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: jogador,
+                cache: false
+            })
+                .done(function (data) {
 
-            }).fail(function (XMLHttpRequest, textStatus, errorThrown) {
-                alert("Usuário ou Senha inválido");
-                console.log(errorThrown);
-            });
+                    localStorage.setItem('codigo_jogador', data);
+                    Insere_Jogador_Sala();
+                    window.location = "https://librandoapp.azurewebsites.net/SalaEspera";
+
+                }).fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("Usuário ou Senha inválido");
+                    console.log(errorThrown);
+                });
+        } else {
+            alert('Escreva o seu nome!');
+        }
+      
 
     }
 
@@ -130,6 +138,14 @@ var acesso_sala = function () {
         today = dd + '/' + mm + '/' + yyyy;
 
         return today;
+
+    }
+
+    function valida_campo(campo) {
+
+        if (campo == "") {
+            campo_branco = true;
+        }
 
     }
 
