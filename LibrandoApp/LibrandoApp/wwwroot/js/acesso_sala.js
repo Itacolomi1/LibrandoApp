@@ -24,7 +24,7 @@ var acesso_sala = function () {
         var codigo = $(controles().cd_sala).val() || code;
 
         var url = 'https://librando.azurewebsites.net/api/sala/valida?code=' + codigo;
-       // var url = `http://localhost:9090/api/sala/valida?code=${codigo}`;
+       //var url = `http://localhost:9090/api/sala/valida?code=${codigo}`;
      
         $.ajax({
             type: "GET",
@@ -35,7 +35,9 @@ var acesso_sala = function () {
             
                 if (data != null) {
                     alert('Seja Bem Vindo');
-                    localStorage.setItem('codigo_sala', data);
+                    localStorage.setItem('codigo_sala', data._id);
+                    localStorage.setItem('status_sala', data.status);
+                    localStorage.setItem('tipo_jogo', data.tipoJogo);
                     $("#divSalaNome").hide();
                     $("#divAluno").show();
                 } else {
