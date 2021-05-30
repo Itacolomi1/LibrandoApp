@@ -1,4 +1,5 @@
 ﻿var lista_perguntas = [];
+var pontos = 0;
 
 
 $(document).ready(function () {
@@ -24,6 +25,7 @@ var jogo1 = function () {
 
     var lista_alfabeto = function () {
 
+        //var url = "http://localhost:9090/api/jogo1";
         var url = "https://librando.azurewebsites.net/api/jogo1";
 
 
@@ -50,11 +52,22 @@ var jogo1 = function () {
 
     }
 
-    var proxima_pergunta = function () {
-
+    var proxima_pergunta = function (id) {
+       
         if (lista_perguntas.length == 1) {
+
+           
+            UpdatePontos();
+            
             alert("Acabou o Jogo!!");
         } else {
+            if ($(id).val() == lista_perguntas[0].OpcaoCerta) {
+                Soma_Pontos();
+            }
+            else {
+                Tira_Pontos();
+            }
+
             lista_perguntas.shift();
             localStorage.setItem('jogo', JSON.stringify(lista_perguntas));
             console.log(JSON.parse(localStorage.getItem('jogo')));
@@ -72,18 +85,60 @@ var jogo1 = function () {
 
     }
 
-    var Trocar_Imagem = function (id, letra) {
-        var imagem = letra + '.png';
-        $(id).attr("src", "./img/AlfabetoLibras/" + imagem);
+    var Soma_Pontos = function () {
+       
+        pontos = pontos + 10;
+        localStorage.setItem('pontuacao', pontos.toString());
+    }
 
+    var Tira_Pontos = function () {
+
+        if (pontos > 0) {
+
+            pontos = pontos - 5;
+            localStorage.setItem('pontuacao', pontos.toString());
+        }
     }
 
 
+    var Trocar_Imagem = function (id, letra) {
+        var imagem = letra + '.png';
+        $(id).attr("src", "./img/AlfabetoLibras/" + imagem);
+        $(id).val(letra);
+
+    }
+
+    var UpdatePontos = function () {
+       // var url = "http://localhost:9090/api/sala/pontuacao";
+        var url = "https://librando.azurewebsites.net/api/sala/pontuacao";
+        var pontuacao = new Object();
+
+        pontuacao._id = localStorage.getItem('codigo_sala');
+        pontuacao.pontos = localStorage.getItem('pontuacao');
+        pontuacao.id_jogador = localStorage.getItem('codigo_jogador');
+
+        $.ajax({
+            type: "PUT",
+            url: url,
+            data: pontuacao,
+            cache: false
+        })
+            .done(function (data) {
+
+                alert("Deu bom!");
+
+            }).fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("erro na hora de inserir pontuacao");
+                console.log(errorThrown);
+            });
+
+    }
 
     return {
         lista_alfabeto: lista_alfabeto,
-        proxima_pergunta: proxima_pergunta
-
+        proxima_pergunta: proxima_pergunta,
+        tira_pontos: Tira_Pontos,
+        soma_pontos: Soma_Pontos
 
     };
 }();
