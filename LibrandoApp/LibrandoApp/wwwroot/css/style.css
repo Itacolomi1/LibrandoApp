@@ -74,7 +74,47 @@ body {
         flex-wrap: wrap;
         justify-content: center;
     }
+#instrucao {
+    background: #d4eaffe6;
+    text-align: center;
+    height: 100%;
+    max-width: 500px;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    display: grid;
+    max-height: 500px;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border: 5px solid #007bff;
+    border-radius: 50%;
+    z-index: 1;
+}
 
+    #instrucao h1 {
+        font-family: cursive;
+    }
+
+    #instrucao p {
+        font-size: 20px;
+        font-family: monospace;
+        text-transform: uppercase;
+        max-width: 80%;
+        margin: auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    #instrucao button {
+        max-width: 150px;
+        width: 100%;
+        margin: auto;
+    }
 #jogo2 {
     background-image: url(../img/espaco.gif);
 }

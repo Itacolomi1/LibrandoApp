@@ -6,7 +6,7 @@ var meteoro = {};
 
 $(document).ready(function () {
     jogo2.preenche_lista_meteoros();
-     jogo2.chuva_de_meteoros();
+     
 
 });
 
@@ -158,12 +158,15 @@ var jogo2 = function () {
         }, 1000);
     }
 
-    window.onload = function () {
+    var cronometro = function () {
         var duration = 20 ; // Converter para segundos
         display = document.querySelector('#tempo'); // selecionando o timer
         startTimer(duration, display); // iniciando o timer
     };	
+    var fecha_instrucao = function () {
+        document.getElementById('instrucao').remove();
 
+    };
     var UpdatePontos = function () {
         //var url = "http://localhost:9090/api/sala/pontuacao";
         var url = "https://librando.azurewebsites.net/api/sala/pontuacao";
@@ -196,7 +199,10 @@ var jogo2 = function () {
         queda_meteoro: queda_meteoro,
         preenche_lista_meteoros: preenche_lista_meteoros,
         valida_meteoro: valida_meteoro,
-        atualiza_pontos: UpdatePontos
+        atualiza_pontos: UpdatePontos,
+        cronometro : cronometro,
+        fecha_instrucao: fecha_instrucao
+
     };
       
 }();
