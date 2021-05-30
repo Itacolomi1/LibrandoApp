@@ -3,6 +3,7 @@ var lista_alfabeto = ["A","B","C","D","E","F","G","H","I", "J", "K", "L", "M","O
 var pontos = 0;
 
 var meteoro = {};
+var flag_finaliza = false;
 
 $(document).ready(function () {
     jogo2.preenche_lista_meteoros();
@@ -151,9 +152,14 @@ var jogo2 = function () {
             if (--timer < 0) {
                 timer = 0;
                 limpa_explosao();
+                if (!flag_finaliza) {
+                    flag_finaliza = true;             
+                    localStorage.setItem('pontuacao', pontos.toString());
+                    UpdatePontos();                    
+                    
+
+                }
                 
-                localStorage.setItem('pontuacao', pontos.toString());
-                UpdatePontos();
             }
         }, 1000);
     }
@@ -175,6 +181,7 @@ var jogo2 = function () {
         pontuacao._id = localStorage.getItem('codigo_sala');
         pontuacao.pontos = localStorage.getItem('pontuacao');
         pontuacao.id_jogador = localStorage.getItem('codigo_jogador');
+        var zero = 0;
        
         $.ajax({
             type: "PUT",
@@ -184,7 +191,9 @@ var jogo2 = function () {
         })
             .done(function (data) {
 
-                alert("Deu bom!");
+                alert("O jogo acabou!! A sua pontuação foi: " + pontuacao.pontos);
+                localStorage.setItem('pontuacao', zero.toString());
+                window.location = "https://librandoapp.azurewebsites.net/Aprendizado"; 
 
             }).fail(function (XMLHttpRequest, textStatus, errorThrown) {
                 alert("erro na hora de inserir pontuacao");
